@@ -9,20 +9,45 @@
 import SwiftUI
 
 class Api {
-    func getRepos(completion: @escaping ([Repository]) -> ()) {
-        guard let url = URL(string: "https://api.github.com/search/repositories") else { return }
+    var apiUrl = "https://api.github.com/search/repositories?q="
+
+    
+    func prepareUrl(text: String) {
+        apiUrl = apiUrl + text
+        print(apiUrl)
         
-        //?q= pra fazer busca
+    }
+    
+    func searchRepos(completion: @escaping ([Repository]) -> ()) {
+        guard let url = URL(string: apiUrl) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, _, _) in
             let repos = try! JSONDecoder().decode([Repository].self, from: data!)
-            print(repos)
+            print("repos: ", repos)
             DispatchQueue.main.async {
                 completion(repos)
             }
         }
-    .resume()
+        .resume()
     }
     
     
+    
 }
+
+
+    
+//    func getRepos(completion: @escaping ([Repository]) -> ()) {
+//        guard let url = URL(string: "https://api.github.com/search/repositories") else { return }
+//
+//        //?q= pra fazer busca
+//
+//        URLSession.shared.dataTask(with: url) { (data, _, _) in
+//            let repos = try? JSONDecoder().decode([Repository].self, from: data!)
+//            print(repos)
+//            DispatchQueue.main.async {
+//                completion(repos!)
+//            }
+//        }
+//    .resume()
+//    }

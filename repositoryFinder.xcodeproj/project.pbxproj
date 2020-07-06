@@ -13,7 +13,7 @@
 		CD246DDA24B261130096A2D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD246DD924B261130096A2D1 /* AppDelegate.swift */; };
 		CD246DDC24B261130096A2D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD246DDB24B261130096A2D1 /* SceneDelegate.swift */; };
 		CD246DDF24B261130096A2D1 /* repositoryFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD246DDD24B261130096A2D1 /* repositoryFinder.xcdatamodeld */; };
-		CD246DE124B261130096A2D1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD246DE024B261130096A2D1 /* Home.swift */; };
+		CD246DE124B261130096A2D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD246DE024B261130096A2D1 /* ContentView.swift */; };
 		CD246DE324B261170096A2D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD246DE224B261170096A2D1 /* Assets.xcassets */; };
 		CD246DE624B261170096A2D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD246DE524B261170096A2D1 /* Preview Assets.xcassets */; };
 		CD246DE924B261170096A2D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD246DE724B261170096A2D1 /* LaunchScreen.storyboard */; };
@@ -55,7 +55,7 @@
 		CD246DD924B261130096A2D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD246DDB24B261130096A2D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CD246DDE24B261130096A2D1 /* repositoryFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = repositoryFinder.xcdatamodel; sourceTree = "<group>"; };
-		CD246DE024B261130096A2D1 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		CD246DE024B261130096A2D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CD246DE224B261170096A2D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD246DE524B261170096A2D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD246DE824B261170096A2D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 			children = (
 				CD246DD924B261130096A2D1 /* AppDelegate.swift */,
 				CD246DDB24B261130096A2D1 /* SceneDelegate.swift */,
-				CD246DE024B261130096A2D1 /* Home.swift */,
+				CD246DE024B261130096A2D1 /* ContentView.swift */,
 				CD246DE224B261170096A2D1 /* Assets.xcassets */,
 				CD246DE724B261170096A2D1 /* LaunchScreen.storyboard */,
 				CD246DEA24B261170096A2D1 /* Info.plist */,
@@ -403,7 +403,7 @@
 				CD246DDA24B261130096A2D1 /* AppDelegate.swift in Sources */,
 				CD246DDC24B261130096A2D1 /* SceneDelegate.swift in Sources */,
 				CD246E0D24B26E740096A2D1 /* Repository.swift in Sources */,
-				CD246DE124B261130096A2D1 /* Home.swift in Sources */,
+				CD246DE124B261130096A2D1 /* ContentView.swift in Sources */,
 				CD246DDF24B261130096A2D1 /* repositoryFinder.xcdatamodeld in Sources */,
 				CDA223F324B2810C00EF5EDF /* Data.swift in Sources */,
 			);

@@ -10,8 +10,9 @@ import Foundation
 
 let defaultText: String = "N/A"
 
-struct Repository: Hashable, Decodable {
+struct Repository: Hashable, Decodable, Identifiable {
     
+    var id = UUID()
     var repositoryName: String = defaultText
     var description: String = defaultText
     var url: String = defaultText
