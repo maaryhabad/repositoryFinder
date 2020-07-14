@@ -26,10 +26,8 @@ struct ContentView : View {
                                 self.showCancelButton = true
                             }, onCommit: {
                                 print("onCommit")
-                                Api().prepareUrl(text: self.searchText)
-                                Api().searchRepos { (repos) in
-                                    self.repos = repos
-                                }
+                                Api.getRepos(text: self.searchText)
+                                ForEach(Model.instance.repositories) { repo in RepositoryRow(repository: repo)}
                             }).foregroundColor(.primary)
 
                             Button(action: {
@@ -56,7 +54,7 @@ struct ContentView : View {
                     .navigationBarHidden(showCancelButton) // .animation(.default) // animation does not work properly
 
                     List(repos) { repos in
-                        Text("Hello World!")
+                        ForEach(Model.instance.repositories) { repo in RepositoryRow(repository: repo)}
 
                     }
                     .navigationBarTitle(Text("Search"))

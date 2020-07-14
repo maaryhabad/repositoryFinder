@@ -20,9 +20,9 @@ struct RepositoryRow: View {
                 .scaledToFit()
                 .clipped()
             VStack(alignment: .leading) {
-                Text(repository.ownerName)
-                    .font(.largeTitle)
                 Text(repository.repositoryName)
+                    .font(.largeTitle)
+                Text(repository.ownerName)
                         .font(.title)
                 Text(repository.updatedAt)
             }
@@ -33,6 +33,6 @@ struct RepositoryRow: View {
 
 struct RepositoryRow_Previews: PreviewProvider {
     static var previews: some View {
-        RepositoryRow(repository: Model.instance.repositoryDefault)
+        RepositoryRow(repository: Model.instance.repositories[0])
     }
 }
