@@ -7,18 +7,17 @@
 //
 
 import Foundation
+import Combine
 
-let defaultText: String = "N/A"
-
-struct Repository: Hashable, Decodable, Identifiable {
+class Repository: ObservableObject, Identifiable {
     
     var id = UUID()
-    var repositoryName: String = defaultText
-    var description: String = defaultText
-    var url: String = defaultText
-    var ownerName: String = defaultText
-    var urlToImage: String = defaultText
-    var updatedAt: String = defaultText
+    var repositoryName: String
+    var description: String
+    var url: String
+    var ownerName: String
+    var urlToImage: String
+    var updatedAt: String
     var stargazersCount: Int
     var watchersCount: Int 
     
@@ -34,38 +33,26 @@ struct Repository: Hashable, Decodable, Identifiable {
         
     }
     
-//    func mapToDictionary() -> [String: Any] {
-//
-//        var repositoryData: [String:Any] = [:]
-//
-//        repositoryData["repositoryName"] = self.repositoryName
-//        repositoryData["description"] = self.description
-//        repositoryData["url"] = self.url
-//        repositoryData["ownerName"] = self.ownerName
-//        repositoryData["urlToImage"] = self.urlToImage
-//        repositoryData["updatedAt"] = self.updatedAt
-//        repositoryData["stargazersCount"] = self.stargazersCount
-//        repositoryData["watchersCount"] = self.watchersCount
-//
-//        return repositoryData
-//    }
-//
-//    static func mapToObject(repositoryData: [String: Any]) -> Repository {
-//
-//        let repositoryName: String = repositoryData["repositoryName"] as! String
-//        let description: String = repositoryData["description"] as! String
-//        let url: String = repositoryData["url"] as! String
-//        let ownerName: String = repositoryData["ownerName"] as! String
-//        let urlToImage: String = repositoryData["urlToImage"] as! String
-//        let updatedAt: String = repositoryData["updatedAt"] as! String
-//        let stargazersCount: String = repositoryData["stargazersCount"] as! String
-//        let watchersCount: String = repositoryData["watchersCount"] as! String
-//
-//
-//        let repository = Repository(repositoryName: repositoryName, description: description, url: url, ownerName: ownerName, urlToImage: urlToImage, updatedAt: updatedAt, stargazersCount: stargazersCount, watchersCount: watchersCount)
-//
-//        return repository
-//    }
+    static func mapToObject(repoDict: [String:Any]) -> Repository {
+        
+        print("repoDict: ", repoDict)
+        let repoName = repoDict["name"] as! String
+        let description = repoDict["description"] as! String
+        let url = repoDict["html_url"] as! String
+        let ownerName = (repoDict["owner"] as! [String:Any])["login"] as! String
+        let urlToImage = (repoDict["owner"] as! [String:Any])["avatar_url"] as! String
+        let updatedAt = repoDict["updated_at"] as! String
+        let stargazersCount = repoDict["stargazers_count"] as! Int
+        let watchersCount = repoDict["watchers_count"] as! Int
+        
+        print("Infos: ", url, repoName, ownerName, urlToImage)
+        
+        let newRepo = Repository(repositoryName: repoName, description: description, url: url, ownerName: ownerName, urlToImage: urlToImage, updatedAt: updatedAt, stargazersCount: stargazersCount, watchersCount: watchersCount)
+        print("--------------------")
+        print("New Repo: ", newRepo)
+
+        return newRepo
+    }
     
 }
 

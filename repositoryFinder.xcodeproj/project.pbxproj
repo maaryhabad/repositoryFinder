@@ -24,6 +24,10 @@
 		CDA223ED24B27A9400EF5EDF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA223EC24B27A9400EF5EDF /* Model.swift */; };
 		CDA223F324B2810C00EF5EDF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA223F224B2810C00EF5EDF /* Api.swift */; };
 		CDA223F524B2859900EF5EDF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA223F424B2859900EF5EDF /* Extensions.swift */; };
+		CDFD090B24BFAB030076B8B8 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD090A24BFAB030076B8B8 /* URLImage.swift */; };
+		CDFD090D24BFB6FE0076B8B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDFD090C24BFB6FE0076B8B8 /* GoogleService-Info.plist */; };
+		CDFD090E24BFB6FE0076B8B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDFD090C24BFB6FE0076B8B8 /* GoogleService-Info.plist */; };
+		CDFD090F24BFB6FE0076B8B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDFD090C24BFB6FE0076B8B8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,8 @@
 		CDA223EC24B27A9400EF5EDF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		CDA223F224B2810C00EF5EDF /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		CDA223F424B2859900EF5EDF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CDFD090A24BFAB030076B8B8 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
+		CDFD090C24BFB6FE0076B8B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE303CFFC1BBFE0343B40229 /* Pods_repositoryFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_repositoryFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF77B9F908E955ABE0E45221 /* Pods-repositoryFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-repositoryFinder.debug.xcconfig"; path = "Target Support Files/Pods-repositoryFinder/Pods-repositoryFinder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,6 +170,8 @@
 				CDA223EC24B27A9400EF5EDF /* Model.swift */,
 				CDA223F224B2810C00EF5EDF /* Api.swift */,
 				CDA223F424B2859900EF5EDF /* Extensions.swift */,
+				CDFD090C24BFB6FE0076B8B8 /* GoogleService-Info.plist */,
+				CDFD090A24BFAB030076B8B8 /* URLImage.swift */,
 			);
 			path = repositoryFinder;
 			sourceTree = "<group>";
@@ -304,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD246DE924B261170096A2D1 /* LaunchScreen.storyboard in Resources */,
+				CDFD090D24BFB6FE0076B8B8 /* GoogleService-Info.plist in Resources */,
 				CD246DE624B261170096A2D1 /* Preview Assets.xcassets in Resources */,
 				CD246DE324B261170096A2D1 /* Assets.xcassets in Resources */,
 			);
@@ -313,6 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDFD090E24BFB6FE0076B8B8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDFD090F24BFB6FE0076B8B8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +447,7 @@
 				CDA223ED24B27A9400EF5EDF /* Model.swift in Sources */,
 				CDA223F524B2859900EF5EDF /* Extensions.swift in Sources */,
 				CDA223EB24B2785800EF5EDF /* RepositoryRow.swift in Sources */,
+				CDFD090B24BFAB030076B8B8 /* URLImage.swift in Sources */,
 				CD246DDA24B261130096A2D1 /* AppDelegate.swift in Sources */,
 				CD246DDC24B261130096A2D1 /* SceneDelegate.swift in Sources */,
 				CD246E0D24B26E740096A2D1 /* Repository.swift in Sources */,

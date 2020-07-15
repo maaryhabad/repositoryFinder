@@ -11,39 +11,42 @@ import Alamofire
 
 class Api {
     
-    static func getRepos(text: String) {
+    static func getRepos(text: String
+//        , completionHandler: @escaping ([Repository]) ->()
+    ) {
+        
+        var reposArray: [Repository]
+        
         AF.request("https://api.github.com/search/repositories?q="+text+"&per_page=20").responseJSON { response in
             
             switch response.result {
             case let .success(value):
                 print("success: ", value)
-                let dic = value as! [String:Any]
+                let dic = value as! [String:Any] //transforma JSON em dicionário
                 print("dic: ", dic)
+                
+                //dividir para uma outra função que recebe todos os repos, e transforma em dic
+                print("dicCount: ", dic.count)
                 if dic.count > 0 {
-                    let repoDict = (dic["items"] as! [[String:Any]])[0]
-                    print("repoDict: ", repoDict)
-                    
-                    let repoName = repoDict["name"] as! String
-                    let description = repoDict["description"] as! String
-                    let url = repoDict["html_url"] as! String
-                    let ownerName = (repoDict["owner"] as! [String:Any])["login"] as! String
-                    let urlToImage = (repoDict["owner"] as! [String:Any])["avatar_url"] as! String
-                    let updatedAt = repoDict["updated_at"] as! String
-                    let stargazersCount = repoDict["stargazers_count"] as! Int
-                    let watchersCount = repoDict["watchers_count"] as! Int
-                    
-                    print("Infos: ", url, repoName, ownerName, urlToImage)
-                    
-                    let newRepo = Repository(repositoryName: repoName, description: description, url: url, ownerName: ownerName, urlToImage: urlToImage, updatedAt: updatedAt, stargazersCount: stargazersCount, watchersCount: watchersCount)
+                    for i in 0...dic.count {
+                        let repoDict = (dic["items"] as! [[String:Any]])[0]
+                        print("repoDict: ", repoDict)
+                        
+                        let newRepo = Repository.mapToObject(repoDict: repoDict)
+                        
+//                        reposArray.append(newRepo)
+                        Model.instance.repositories.append(newRepo)
+                        print("--------------------")
+
+                        print("Repositories Count: ", Model.instance.repositories.count)
+                    }
                     print("--------------------")
-                    print("New Repo: ", newRepo)
+                    print(Model.instance.repositories)
+//                    completionHandler(reposArray)
                     
-                    Model.instance.repositories.append(newRepo)
-                    print("--------------------")
-                    print("Repositories Count: ", Model.instance.repositories.count)
                 }
                 
-                
+                //FIXME: else: Alerta sobre não ter resultados.
 
                 
                 

@@ -7,12 +7,13 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView : View {
-    @State var repos: [Repository] = []
-    @State private var searchText = ""
+    @ObservedObject var model = Model.instance
+    @State private var searchText: String = ""
     @State private var showCancelButton: Bool = false
-
+    
         var body: some View {
 
             NavigationView {
@@ -22,12 +23,13 @@ struct ContentView : View {
                         HStack {
                             Image(systemName: "magnifyingglass")
 
-                            TextField("search", text: $searchText, onEditingChanged: { isEditing in
+                            TextField("digite o nome do repositório", text: $searchText, onEditingChanged: { isEditing in
                                 self.showCancelButton = true
                             }, onCommit: {
                                 print("onCommit")
                                 Api.getRepos(text: self.searchText)
-                                ForEach(Model.instance.repositories) { repo in RepositoryRow(repository: repo)}
+                                //atualizar  a lista
+//                                ForEach(self.repositories) { repo in RepositoryRow(repository: repo)}
                             }).foregroundColor(.primary)
 
                             Button(action: {
@@ -42,7 +44,7 @@ struct ContentView : View {
                         .cornerRadius(10.0)
 
                         if showCancelButton  {
-                            Button("Cancel") {
+                            Button("Cancelar") {
                                     UIApplication.shared.endEditing(true) // this must be placed before the other commands here
                                     self.searchText = ""
                                     self.showCancelButton = false
@@ -51,18 +53,23 @@ struct ContentView : View {
                         }
                     }
                     .padding(.horizontal)
-                    .navigationBarHidden(showCancelButton) // .animation(.default) // animation does not work properly
-
-                    List(repos) { repos in
-                        ForEach(Model.instance.repositories) { repo in RepositoryRow(repository: repo)}
-
+                    .navigationBarHidden(showCancelButton)
+                
+                    List(model.repositories) { repos in
+                        ForEach(self.model.repositories) { repo in
+                            RepositoryRow(repository: repo)
+                        }
                     }
-                    .navigationBarTitle(Text("Search"))
+//                    ForEach(Model.instance.defaultRepo) { repo in RepositoryRow(repository: repo)}
+//
+//                    }
+                    .navigationBarTitle(Text("Cadê o repositório?"))
                     .resignKeyboardOnDragGesture()
                     }
                 }
             }
 }
+
 
 
     struct ContentView_Previews: PreviewProvider {
