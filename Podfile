@@ -8,6 +8,10 @@ target 'repositoryFinder' do
 	pod 'Alamofire', '~> 5.2'
   # add the Firebase pod for Google Analytics
   pod 'Firebase/Analytics'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
+  pod 'URLImage', '~> 0.9'
   # add pods for any other desired Firebase products
   # https://firebase.google.com/docs/ios/setup#available-pods
 

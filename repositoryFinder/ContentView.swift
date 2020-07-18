@@ -14,72 +14,67 @@ struct ContentView : View {
     @State private var searchText: String = ""
     @State private var showCancelButton: Bool = false
     
-        var body: some View {
-
-            NavigationView {
-                VStack {
-                    // Search view
+    var body: some View {
+        NavigationView {
+            VStack {
+                // Search view
+                HStack {
                     HStack {
-                        HStack {
-                            Image(systemName: "magnifyingglass")
-
-                            TextField("digite o nome do repositório", text: $searchText, onEditingChanged: { isEditing in
-                                self.showCancelButton = true
-                            }, onCommit: {
-                                print("onCommit")
-                                Api.getRepos(text: self.searchText)
-                                //atualizar  a lista
-//                                ForEach(self.repositories) { repo in RepositoryRow(repository: repo)}
-                            }).foregroundColor(.primary)
-
-                            Button(action: {
-                                self.searchText = ""
-                            }) {
-                                Image(systemName: "xmark.circle.fill").opacity(searchText == "" ? 0 : 1)
-                            }
-                        }
-                        .padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
-                        .foregroundColor(.secondary)
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(10.0)
-
-                        if showCancelButton  {
-                            Button("Cancelar") {
-                                    UIApplication.shared.endEditing(true) // this must be placed before the other commands here
-                                    self.searchText = ""
-                                    self.showCancelButton = false
-                            }
-                            .foregroundColor(Color(.systemBlue))
+                        Image(systemName: "magnifyingglass")
+                        
+                        TextField("digite o nome do repositório", text: $searchText, onEditingChanged: { isEditing in
+                            self.showCancelButton = true
+                        }, onCommit: {
+                            print("onCommit")
+                            Model.instance.repositories.removeAll()
+                            Api.getRepos(text: self.searchText)
+                        }).foregroundColor(.primary)
+                        
+                        Button(action: {
+                            self.searchText = ""
+                        }) {
+                            Image(systemName: "xmark.circle.fill").opacity(searchText == "" ? 0 : 1)
                         }
                     }
-                    .padding(.horizontal)
-                    .navigationBarHidden(showCancelButton)
+                    .padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
+                    .foregroundColor(.secondary)
+                    .background(Color(.secondarySystemBackground))
+                    .cornerRadius(10.0)
+                    
+                    if showCancelButton  {
+                        Button("Cancelar") {
+                            UIApplication.shared.endEditing(true)
+                            Model.instance.repositories.removeAll()
+                            self.searchText = ""
+                            self.showCancelButton = false
+                        }
+                        .foregroundColor(Color(.systemBlue))
+                    }
+                }
+                .padding(.horizontal)
+                .navigationBarHidden(showCancelButton)
                 
-                    List(model.repositories) { repos in
-                        ForEach(self.model.repositories) { repo in
+                    List(self.model.repositories) { repo in
+                        NavigationLink(destination: RepositoryDetailView(repository: repo)) {
                             RepositoryRow(repository: repo)
                         }
                     }
-//                    ForEach(Model.instance.defaultRepo) { repo in RepositoryRow(repository: repo)}
-//
-//                    }
-                    .navigationBarTitle(Text("Cadê o repositório?"))
-                    .resignKeyboardOnDragGesture()
-                    }
-                }
-            }
-}
-
-
-
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            Group {
-               ContentView()
-                  .environment(\.colorScheme, .light)
-
-               ContentView()
-                  .environment(\.colorScheme, .dark)
+                .navigationBarTitle(Text("Cadê o repositório?"))
+                .resignKeyboardOnDragGesture()
             }
         }
     }
+}
+
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            ContentView()
+                .environment(\.colorScheme, .light)
+            
+            ContentView()
+                .environment(\.colorScheme, .dark)
+        }
+    }
+}

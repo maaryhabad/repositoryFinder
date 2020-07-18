@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ImageWithActivityIndicator",
+        "repositoryURL": "https://github.com/blackwiz4rd/ViewWithActivityIndicator.git",
+        "state": {
+          "branch": null,
+          "revision": "693a5f8b60e3fb3849c6f608b1d8719cb01cff70",
+          "version": "1.0.8"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

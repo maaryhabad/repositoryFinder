@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,14 +20,17 @@
 		CD246DF424B261170096A2D1 /* repositoryFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD246DF324B261170096A2D1 /* repositoryFinderTests.swift */; };
 		CD246DFF24B261170096A2D1 /* repositoryFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD246DFE24B261170096A2D1 /* repositoryFinderUITests.swift */; };
 		CD246E0D24B26E740096A2D1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD246E0C24B26E740096A2D1 /* Repository.swift */; };
+		CD416BC724C2465B0023129B /* RepositoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD416BC624C2465B0023129B /* RepositoryDetailView.swift */; };
+		CD416BD224C258520023129B /* ImageWithActivityIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = CD416BD124C258520023129B /* ImageWithActivityIndicator */; };
+		CD416BD424C258770023129B /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD416BD324C258770023129B /* CircleImage.swift */; };
 		CDA223EB24B2785800EF5EDF /* RepositoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA223EA24B2785800EF5EDF /* RepositoryRow.swift */; };
 		CDA223ED24B27A9400EF5EDF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA223EC24B27A9400EF5EDF /* Model.swift */; };
 		CDA223F324B2810C00EF5EDF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA223F224B2810C00EF5EDF /* Api.swift */; };
 		CDA223F524B2859900EF5EDF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA223F424B2859900EF5EDF /* Extensions.swift */; };
-		CDFD090B24BFAB030076B8B8 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD090A24BFAB030076B8B8 /* URLImage.swift */; };
 		CDFD090D24BFB6FE0076B8B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDFD090C24BFB6FE0076B8B8 /* GoogleService-Info.plist */; };
 		CDFD090E24BFB6FE0076B8B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDFD090C24BFB6FE0076B8B8 /* GoogleService-Info.plist */; };
 		CDFD090F24BFB6FE0076B8B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDFD090C24BFB6FE0076B8B8 /* GoogleService-Info.plist */; };
+		CDFD091124BFBE3F0076B8B8 /* DAOFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFD091024BFBE3F0076B8B8 /* DAOFirebase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,12 +74,14 @@
 		CD246DFE24B261170096A2D1 /* repositoryFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = repositoryFinderUITests.swift; sourceTree = "<group>"; };
 		CD246E0024B261170096A2D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD246E0C24B26E740096A2D1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		CD416BC624C2465B0023129B /* RepositoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailView.swift; sourceTree = "<group>"; };
+		CD416BD324C258770023129B /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		CDA223EA24B2785800EF5EDF /* RepositoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRow.swift; sourceTree = "<group>"; };
 		CDA223EC24B27A9400EF5EDF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		CDA223F224B2810C00EF5EDF /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		CDA223F424B2859900EF5EDF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		CDFD090A24BFAB030076B8B8 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		CDFD090C24BFB6FE0076B8B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CDFD091024BFBE3F0076B8B8 /* DAOFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOFirebase.swift; sourceTree = "<group>"; };
 		CE303CFFC1BBFE0343B40229 /* Pods_repositoryFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_repositoryFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF77B9F908E955ABE0E45221 /* Pods-repositoryFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-repositoryFinder.debug.xcconfig"; path = "Target Support Files/Pods-repositoryFinder/Pods-repositoryFinder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FC3E0E27D40E2427EB42CA7 /* Pods_repositoryFinder.framework in Frameworks */,
+				CD416BD224C258520023129B /* ImageWithActivityIndicator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,7 +177,9 @@
 				CDA223F224B2810C00EF5EDF /* Api.swift */,
 				CDA223F424B2859900EF5EDF /* Extensions.swift */,
 				CDFD090C24BFB6FE0076B8B8 /* GoogleService-Info.plist */,
-				CDFD090A24BFAB030076B8B8 /* URLImage.swift */,
+				CDFD091024BFBE3F0076B8B8 /* DAOFirebase.swift */,
+				CD416BD324C258770023129B /* CircleImage.swift */,
+				CD416BC624C2465B0023129B /* RepositoryDetailView.swift */,
 			);
 			path = repositoryFinder;
 			sourceTree = "<group>";
@@ -220,6 +228,9 @@
 			dependencies = (
 			);
 			name = repositoryFinder;
+			packageProductDependencies = (
+				CD416BD124C258520023129B /* ImageWithActivityIndicator */,
+			);
 			productName = repositoryFinder;
 			productReference = CD246DD624B261130096A2D1 /* repositoryFinder.app */;
 			productType = "com.apple.product-type.application";
@@ -295,6 +306,9 @@
 				Base,
 			);
 			mainGroup = CD246DCD24B261120096A2D1;
+			packageReferences = (
+				CD416BD024C258520023129B /* XCRemoteSwiftPackageReference "ViewWithActivityIndicator" */,
+			);
 			productRefGroup = CD246DD724B261130096A2D1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -445,9 +459,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDA223ED24B27A9400EF5EDF /* Model.swift in Sources */,
+				CDFD091124BFBE3F0076B8B8 /* DAOFirebase.swift in Sources */,
 				CDA223F524B2859900EF5EDF /* Extensions.swift in Sources */,
+				CD416BC724C2465B0023129B /* RepositoryDetailView.swift in Sources */,
 				CDA223EB24B2785800EF5EDF /* RepositoryRow.swift in Sources */,
-				CDFD090B24BFAB030076B8B8 /* URLImage.swift in Sources */,
+				CD416BD424C258770023129B /* CircleImage.swift in Sources */,
 				CD246DDA24B261130096A2D1 /* AppDelegate.swift in Sources */,
 				CD246DDC24B261130096A2D1 /* SceneDelegate.swift in Sources */,
 				CD246E0D24B26E740096A2D1 /* Repository.swift in Sources */,
@@ -784,6 +800,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CD416BD024C258520023129B /* XCRemoteSwiftPackageReference "ViewWithActivityIndicator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/blackwiz4rd/ViewWithActivityIndicator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CD416BD124C258520023129B /* ImageWithActivityIndicator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD416BD024C258520023129B /* XCRemoteSwiftPackageReference "ViewWithActivityIndicator" */;
+			productName = ImageWithActivityIndicator;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		CD246DDD24B261130096A2D1 /* repositoryFinder.xcdatamodeld */ = {

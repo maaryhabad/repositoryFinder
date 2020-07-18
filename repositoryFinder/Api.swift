@@ -22,31 +22,49 @@ class Api {
             switch response.result {
             case let .success(value):
                 print("success: ", value)
+                
                 let dic = value as! [String:Any] //transforma JSON em dicionário
                 print("dic: ", dic)
                 
-                //dividir para uma outra função que recebe todos os repos, e transforma em dic
-                print("dicCount: ", dic.count)
-                if dic.count > 0 {
-                    for i in 0...dic.count {
-                        let repoDict = (dic["items"] as! [[String:Any]])[0]
-                        print("repoDict: ", repoDict)
-                        
-                        let newRepo = Repository.mapToObject(repoDict: repoDict)
-                        
-//                        reposArray.append(newRepo)
-                        Model.instance.repositories.append(newRepo)
-                        print("--------------------")
-
-                        print("Repositories Count: ", Model.instance.repositories.count)
-                    }
+                let itemsCount = dic["total_count"] as! Int
+                print(itemsCount)
+                for i in 0..<20 {
+                    let repoDict = (dic["items"] as! [[String:Any]])[i]
+                    print("----------------------")
+                    print("repoDict", repoDict)
+                    let newRepo = Repository.mapToObject(repoDict: repoDict)
+                    Model.instance.repositories.append(newRepo)
                     print("--------------------")
-                    print(Model.instance.repositories)
-//                    completionHandler(reposArray)
-                    
+                    print("Repositories Count: ", Model.instance.repositories.count)
                 }
                 
-                //FIXME: else: Alerta sobre não ter resultados.
+//                if dic["total_count"] as? Int == 1 {
+//
+//
+//
+//                }
+                //dividir para uma outra função que recebe todos os repos, e transforma em dic
+//                print("dicCount: ", dic.count)
+//                if dic.count > 0 {
+//                    for i in 0...dic.count {
+//                        let repoDict = (dic["items"] as! [[String:Any]])[0]
+//                        print("repoDict: ", repoDict)
+//
+//                        let newRepo = Repository.mapToObject(repoDict: repoDict)
+//
+////                        reposArray.append(newRepo)
+//                        Model.instance.repositories.append(newRepo)
+//
+//                    }
+//                    print("--------------------")
+//                    print(Model.instance.repositories)
+////                    completionHandler(reposArray)
+//
+//                } else {
+//                    print("não retornou resultados")
+//                }
+//
+//                //FIXME: else: Alerta sobre não ter resultados.
 
                 
                 
@@ -58,27 +76,4 @@ class Api {
             
         }
     }
-    
-//    static func getRepos(text: String, completionHandler: @escaping (Repository?)-> ()) {
-//        var gitUrl = "https://api.github.com/search/repositories?q="
-//        let apiURL = gitUrl + text
-//
-//        AF.request(apiURL).responseJSON { response in
-//            switch response.result {
-//            case let .success(value):
-//                print("success")
-//                let dic = value as! [String:Any]
-//
-//                if dic["totalItems"] as? Int == 1 {
-//                    let repoDict = (dic["items"] as! [[String:Any]])[0]
-//
-//                    print(repoDict)
-//
-//            }
-//            case let .failure(error):
-//                print("Não encontrou o dic")
-//                completionHandler(nil)
-//            }
-//        }
-//    }
 }

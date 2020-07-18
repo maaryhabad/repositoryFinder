@@ -16,12 +16,12 @@ class Repository: ObservableObject, Identifiable {
     var description: String
     var url: String
     var ownerName: String
-    var urlToImage: String
+    var urlToImage: URL
     var updatedAt: String
     var stargazersCount: Int
     var watchersCount: Int 
     
-    init(repositoryName: String, description: String, url: String, ownerName: String, urlToImage: String, updatedAt: String, stargazersCount: Int, watchersCount: Int) {
+    init(repositoryName: String, description: String, url: String, ownerName: String, urlToImage: URL, updatedAt: String, stargazersCount: Int, watchersCount: Int) {
         self.repositoryName = repositoryName
         self.description = description
         self.url = url
@@ -37,32 +37,51 @@ class Repository: ObservableObject, Identifiable {
         
         print("repoDict: ", repoDict)
         let repoName = repoDict["name"] as! String
-        let description = repoDict["description"] as! String
+        
         let url = repoDict["html_url"] as! String
         let ownerName = (repoDict["owner"] as! [String:Any])["login"] as! String
-        let urlToImage = (repoDict["owner"] as! [String:Any])["avatar_url"] as! String
+        var urlToImage = (repoDict["owner"] as! [String:Any])["avatar_url"] as! String
         let updatedAt = repoDict["updated_at"] as! String
         let stargazersCount = repoDict["stargazers_count"] as! Int
         let watchersCount = repoDict["watchers_count"] as! Int
+        var newDescription: String
+        
+        
+        if let description = repoDict["description"] as? NSNull {
+            newDescription = ""
+        } else {
+            newDescription = repoDict["description"] as! String
+        }
+        
+        
+        
+        var imageURL = URL(string: urlToImage)!
+        var update = dateFormatter(updatedAt: updatedAt)
+        print("update: ", update)
         
         print("Infos: ", url, repoName, ownerName, urlToImage)
         
-        let newRepo = Repository(repositoryName: repoName, description: description, url: url, ownerName: ownerName, urlToImage: urlToImage, updatedAt: updatedAt, stargazersCount: stargazersCount, watchersCount: watchersCount)
+        let newRepo = Repository(repositoryName: repoName, description: newDescription, url: url, ownerName: ownerName, urlToImage: imageURL, updatedAt: update, stargazersCount: stargazersCount, watchersCount: watchersCount)
         print("--------------------")
         print("New Repo: ", newRepo)
 
         return newRepo
     }
     
+    //map to dictionary
 }
 
 
 
-func dateFormatter(updatedAt: String) -> Date {
+func dateFormatter(updatedAt: String) -> String {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    let date = dateFormatter.date(from: updatedAt)!
-    return date
+    var date = dateFormatter.date(from: updatedAt)!
+    
+    let formatter = DateFormatter()
+    formatter.dateFormat = "dd/MM/yyyy"
+    let newDate = formatter.string(from: date)
+    return newDate
 }
 
 //FIXME: Função que pega url e troca pra imagem

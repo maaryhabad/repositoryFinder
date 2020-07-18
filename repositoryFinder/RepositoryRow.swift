@@ -7,7 +7,9 @@
 //
 
 import SwiftUI
-
+import Combine
+import UIKit
+import URLImage
 
 struct RepositoryRow: View {
     let repository: Repository
@@ -15,16 +17,18 @@ struct RepositoryRow: View {
     
     var body: some View {
         HStack {
-            Image(repository.urlToImage)
-                .frame(width: 100, height: 100, alignment: .center)
-                .scaledToFit()
-                .clipped()
+            URLImage(repository.urlToImage,
+                     processors: [ Resize(size: CGSize(width: 30, height: 30), scale: UIScreen.main.scale)])
+                .aspectRatio(contentMode: .fit)
+            
             VStack(alignment: .leading) {
                 Text(repository.repositoryName)
-                    .font(.largeTitle)
+                    .font(.title)
                 Text(repository.ownerName)
-                        .font(.title)
-                Text(repository.updatedAt)
+                Text("Último update: ")
+                    .font(.caption)
+                + Text(repository.updatedAt)
+                    .font(.caption)
             }
         }
     }
