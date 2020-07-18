@@ -68,6 +68,23 @@ class Repository: ObservableObject, Identifiable {
         return newRepo
     }
     
+    func mapToDictionary() -> [String: Any] {
+        var repositoryData: [String:Any] = [:]
+        
+        let urlConverted = self.urlToImage.path
+        
+        repositoryData["name"] = self.repositoryName
+        repositoryData["description"] = self.description
+        repositoryData["url"] = self.url
+        repositoryData["ownerName"] = self.ownerName
+        repositoryData["urlToImage"] = urlConverted
+        repositoryData["updatedAt"] = self.updatedAt
+        repositoryData["stargazersCount"] = self.stargazersCount
+        repositoryData["watchersCount"] = self.watchersCount
+        
+        return repositoryData
+    }
+    
     //map to dictionary
 }
 

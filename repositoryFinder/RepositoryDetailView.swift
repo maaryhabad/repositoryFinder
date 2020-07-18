@@ -17,23 +17,52 @@ struct RepositoryDetailView: View {
     var body: some View {
         NavigationView {
             VStack {
-                CircleImage(urlToImage: repository.urlToImage)
+                HStack {
+                    CircleImage(urlToImage: repository.urlToImage)
+                        .padding(.trailing)
+                    VStack {
+                        Text(repository.repositoryName)
+                            .font(.largeTitle)
+                        Text(repository.ownerName)
+                        .font(.subheadline)
+                    }
+                }
+                
                 HStack {
                     Text(repository.description)
-                        .font(.largeTitle)
-                        Spacer()
-                        Text(repository.ownerName)
-                            .font(.subheadline)
+                    Spacer()
                 }.padding()
                 
-            }.navigationBarTitle(repository.repositoryName)
-                .navigationBarItems(trailing:
+                HStack {
                     Button(action: {
-                    // FIXME: salva no Firebase
+                        UIApplication.shared.open(URL(string: self.repository.url)!)
                     }) {
-                        Text("Save")
-                })
-        }
+                            VStack {
+                                Image("github").resizable()
+                                    .frame(width: 40, height: 40)
+                                    .scaledToFit()
+                                Text("Ver no Github")
+                            }
+                        }
+
+                    Button(action: { }) {
+                        VStack {
+                            Image("eye").resizable()
+                                .frame(width: 40, height: 40)
+                                .scaledToFit()
+                            Text("\(repository.watchersCount)")
+                        }
+                    }
+                }
+                
+            }
+            
+        }.navigationBarItems(trailing:
+            Button(action: {
+                DAOFirebase.save(repository: self.repository)
+            }) {
+                Text("Salvar")
+        })
         
     }
 }

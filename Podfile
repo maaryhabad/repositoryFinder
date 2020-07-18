@@ -10,6 +10,7 @@ target 'repositoryFinder' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Auth'
   pod 'FirebaseFirestoreSwift'
   pod 'URLImage', '~> 0.9'
   # add pods for any other desired Firebase products
