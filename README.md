@@ -15,7 +15,7 @@ Um app em SwiftUI que te ajuda a buscar e encontrar seus repositórios favoritos
 
 ## Como rodar
 
-1. Após clonar o repositóri, abra o terminal, vá até a pasta do projeto clonado e digite o seguinte código:
+1. Após clonar o repositório, abra o terminal, vá até a pasta do projeto clonado e digite o seguinte código:
 
 ```
 pod install
