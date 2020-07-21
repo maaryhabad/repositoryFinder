@@ -1,4 +1,4 @@
-[Ícone do aplicativo](Design/ícones.png)
+![Ícone do aplicativo](Design/ícones.png)
 # RepositoryFinder
 
 Um app em SwiftUI que te ajuda a buscar e encontrar seus repositórios favoritos.
