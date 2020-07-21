@@ -18,6 +18,7 @@ Um app em SwiftUI que te ajuda a buscar e encontrar seus repositórios favoritos
 
 ```
 pod install
+```
 
 2. Abra no XCode o arquivo de nome: repositoryFinder.xcworkspace
 
